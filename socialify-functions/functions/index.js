@@ -11,7 +11,7 @@ app.get('/screams',getAllScreams );
 app.post('/scream', FBAuth, postOneScream);
 app.post('/signup', signup);
 app.post('/login', login);
-app.post('user/image',FBAuth, uploadImage)
+app.post('/user/image', FBAuth, uploadImage);
 
 
 exports.api = functions.region('europe-west1').https.onRequest(app);
