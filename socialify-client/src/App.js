@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 //components
 import Navbar from './components/Navbar';
@@ -25,8 +25,11 @@ const theme = createMuiTheme({
       main: '#ff8a65',
       dark: '#ba000d',
       contrastText: '#000',
-    },
+    }
   },
+  typography: {
+    useNextVariants: true
+  }
 });
 
 class App extends Component {
