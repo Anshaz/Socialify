@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import AppIcon from "../images/logo.png";
-import axios from "axios";
 import { Link } from "react-router-dom";
 //MUI components
 import Grid from "@material-ui/core/Grid";
@@ -13,6 +12,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 //Redux stuff
 import { connect } from "react-redux";
 import { loginUser } from "../redux/actions/userActions";
+
 const styles = (theme) => ({
   ...theme.spreadIt,
 });
