@@ -111,7 +111,7 @@ class Profile extends Component {
                             id="imageInput"
                             hidden="hidden"
                             onChange={this.handleImageChange} />
-                        <WhiteOnBlueTooltip title="Edit You Profile Picture" placement="right-start">
+                        <WhiteOnBlueTooltip title="Edit You Profile Picture" placement="bottom">
                             <IconButton onClick={this.handleEditPicture} className="button">
                                 <EditIcon color="primary" />
                             </IconButton>

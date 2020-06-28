@@ -10,6 +10,17 @@ body {
   margin: 80px auto 0 auto;
   max-width: 1200px;
 }
+
+.nav-container svg{
+  color: #fff
+}
+.nav-container{
+  place-content: center;
+}
+.MuiButton-label {
+  color: #fff;
+}
+
 a {
   text-decoration: none;
 }
