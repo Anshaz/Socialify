@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import moment from "moment";
+import EditDetails from './EditDetails';
 
 //MUI Stuff
 import Button from '@material-ui/core/Button';
@@ -16,10 +17,17 @@ import TodayIcon from '@material-ui/icons/Today';
 import LocationOn from '@material-ui/icons/LocationOn';
 import LinkIcon from '@material-ui/icons/Link';
 import EditIcon from '@material-ui/icons/Edit';
+import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 //Redux stuff
 import { connect } from 'react-redux';
 import { logoutUser, uploadImage } from '../redux/actions/userActions';
 
+const WhiteOnBlueTooltip = withStyles({
+    tooltip: {
+        color: "white",
+        backgroundColor: "#2196f3"
+    }
+})(Tooltip);
 
 const styles = (theme) => ({
     paper: {
@@ -41,6 +49,7 @@ const styles = (theme) => ({
             objectFit: 'cover',
             maxWidth: '100%',
             borderRadius: '50%'
+
         },
         '& .profile-details': {
             textAlign: 'center',
@@ -80,6 +89,10 @@ class Profile extends Component {
     handleEditPicture = () => {
         const fileInput = document.getElementById('imageInput');
         fileInput.click();
+    };
+
+    handleLogout = () => {
+        this.props.logoutUser();
     }
 
     render() {
@@ -98,11 +111,11 @@ class Profile extends Component {
                             id="imageInput"
                             hidden="hidden"
                             onChange={this.handleImageChange} />
-                        <Tooltip title="Edit You Profile Picture" placement="right-start">
+                        <WhiteOnBlueTooltip title="Edit You Profile Picture" placement="right-start">
                             <IconButton onClick={this.handleEditPicture} className="button">
                                 <EditIcon color="primary" />
                             </IconButton>
-                        </Tooltip>
+                        </WhiteOnBlueTooltip>
                     </div>
                     <hr />
                     <div className="profile-details">
@@ -130,9 +143,15 @@ class Profile extends Component {
                             </Fragment>
                         )}
                         <TodayIcon color="primary" /> {' '}
-                        <span>Joined{moment(createdAt).format('MMM YYYY')}</span>
+                        <span>Joined: {moment(createdAt).format('MMM YYYY')}</span>
 
                     </div>
+                    <WhiteOnBlueTooltip title="Logout" placement="bottom">
+                        <IconButton onClick={this.handleLogout}>
+                            <KeyboardReturn color="primary"></KeyboardReturn>
+                        </IconButton>
+                    </WhiteOnBlueTooltip>
+                    <EditDetails />
                 </div >
             </Paper >
         ) : (
