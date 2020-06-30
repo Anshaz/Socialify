@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import PropTypes from 'prop-types';
 import MyButton from '../util/MyButton';
+import DeleteScream from './DeleteScream';
 //MUI Card
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -20,6 +21,7 @@ import { likeScream, unlikeScream } from '../redux/actions/dataActions';
 
 const styles = {
   card: {
+    position: 'relative',
     display: "flex",
     marginBottom: 20,
   },
@@ -34,7 +36,8 @@ const styles = {
 
 class Scream extends Component {
   likedScream = () => {
-    if (this.props.user.likes && this.props.user.likes.find(like => like.screamId === this.props.scream.screamId))
+    if (this.props.user.likes && this.props.user.likes.find(
+      (like) => like.screamId === this.props.scream.screamId))
       return true;
     else
       return false;
@@ -57,7 +60,8 @@ class Scream extends Component {
         likeCount,
         commentCount,
       },
-      user: { authenticated }
+      user: { authenticated, credentials: { handle }
+      }
     } = this.props;
 
     const likeButton = !authenticated ? (
@@ -78,6 +82,10 @@ class Scream extends Component {
           )
       )
 
+    const deleteButton = authenticated && userHandle === handle ? (
+      <DeleteScream screamId={screamId} />
+    ) : null;
+
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -94,6 +102,7 @@ class Scream extends Component {
           >
             {userHandle}
           </Typography>
+          {deleteButton}
           <Typography variant="body2" color="textSecondary">
             {moment(createdAt).fromNow()}
           </Typography>
@@ -116,14 +125,14 @@ Scream.propTypes = {
   user: PropTypes.object.isRequired,
   scream: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired
-}
+};
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user
-})
+});
 const mapActionsToProps = {
   likeScream,
   unlikeScream
-}
+};
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Scream));
