@@ -19,8 +19,13 @@ import { IconButton } from '@material-ui/core';
 
 const styles = (theme) => ({
     ...theme.spreadThis,
-    button: {
+    myButton: {
         float: 'right',
+        position: 'relative',
+        marginTop: 10
+    },
+    button: {
+        float: 'right'
     }
 });
 const WhiteOnBlueTooltip = withStyles({
@@ -124,8 +129,23 @@ class EditDetails extends Component {
                         />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} variant="outlined" color="secondary">Cancel</Button>
-                        <Button onClick={this.handleSubmit} variant="outlined" color="secondary">Submit</Button>
+
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="secondary"
+                            onClick={this.handleClose}
+                            className={classes.myButton}
+                        >Close</Button>
+
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            onClick={this.handleSubmit}
+                            className={classes.myButton}
+                        >Submit</Button>
+
                     </DialogActions>
                 </Dialog>
             </Fragment>

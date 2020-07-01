@@ -16,7 +16,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import TodayIcon from '@material-ui/icons/Today';
 import LocationOn from '@material-ui/icons/LocationOn';
 import LinkIcon from '@material-ui/icons/Link';
-import EditIcon from '@material-ui/icons/Edit';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 //Redux stuff
 import { connect } from 'react-redux';
@@ -111,9 +111,9 @@ class Profile extends Component {
                             id="imageInput"
                             hidden="hidden"
                             onChange={this.handleImageChange} />
-                        <WhiteOnBlueTooltip title="Edit You Profile Picture" placement="bottom">
+                        <WhiteOnBlueTooltip title="Change Your Profile Picture" placement="bottom">
                             <IconButton onClick={this.handleEditPicture} className="button">
-                                <EditIcon color="primary" />
+                                <AddAPhotoIcon color="primary" />
                             </IconButton>
                         </WhiteOnBlueTooltip>
                     </div>
