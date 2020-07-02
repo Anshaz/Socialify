@@ -20,7 +20,7 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import KeyboardReturn from '@material-ui/icons/KeyboardReturn';
 //Redux stuff
 import { connect } from 'react-redux';
-import { logoutUser, uploadImage } from '../redux/actions/userActions';
+import { logoutUser, uploadImage } from '../../redux/actions/userActions';
 
 const WhiteOnBlueTooltip = withStyles({
     tooltip: {

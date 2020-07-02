@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 //Redux stuff
-import { editUserDetails } from '../redux/actions/userActions';
+import { editUserDetails } from '../../redux/actions/userActions';
 import { connect } from 'react-redux';
 
 //Dialog/MUI stuff
