@@ -18,7 +18,7 @@ class home extends Component {
             screams.map(scream => <Scream key={scream.screamId} scream={scream}></Scream>)
         ) : <p>Loading...Your Screams</p>
         return (
-            <Grid container spacing={10}>
+            <Grid container spacing={12}>
                 <Grid item sm={4} xs={12}>
                     <Profile />
                 </Grid>
