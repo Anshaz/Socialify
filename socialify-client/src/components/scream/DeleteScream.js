@@ -13,13 +13,14 @@ import DeleteOutline from '@material-ui/icons/DeleteOutline';
 import { connect } from 'react-redux';
 import { deleteScream } from '../../redux/actions/dataActions';
 
-const styles = {
+const styles = (theme) => ({
+    ...theme.spreadThis,
     deleteButton: {
         position: 'absolute',
         left: '85%',
         top: '15%'
     }
-};
+});
 
 class DeleteScream extends Component {
     state = {
@@ -57,10 +58,18 @@ class DeleteScream extends Component {
                         Are you sure you want to delete this scream ?
           </DialogTitle>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button
+                            type="cancel"
+                            variant="contained"
+                            color="primary"
+                            onClick={this.handleClose}>
                             Cancel
             </Button>
-                        <Button onClick={this.deleteScream} color="secondary">
+                        <Button
+                            type="delete"
+                            variant="contained"
+                            color="secondary"
+                            onClick={this.deleteScream}>
                             Delete
             </Button>
                     </DialogActions>

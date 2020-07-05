@@ -14,6 +14,7 @@ import { logoutUser, getUserData } from './redux/actions/userActions';
 
 //components
 import Navbar from "./components/layout/Navbar";
+import Navbar2 from "./components/layout/Navbar2";
 import AuthRoute from "./util/AuthRoute";
 //Pages
 import home from "./pages/home";
@@ -24,6 +25,8 @@ import { render } from "@testing-library/react";
 import axios from "axios";
 
 const theme = createMuiTheme(themeFile);
+
+axios.defaults.baseURL = 'https://europe-west1-socialify-2e968.cloudfunctions.net/api';
 
 const token = localStorage.FBIdToken;
 if (token) {
@@ -46,6 +49,7 @@ class App extends Component {
         <Provider store={store}>
           <Router>
             <Navbar />
+            <Navbar2 />
             <div className="container">
               <Switch>
                 <Route exact path="/" component={home}></Route>
